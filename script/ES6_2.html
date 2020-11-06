@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+    <script>
+        /*
+        객체 : 변수는 데이터값을 하나밖에 저장하지 못하지만, 객체는 데이터값을 필요한대로 만들어 사용가능
+
+        var 변수 = {name:홍길동, age:20, nationality:'한국'}
+        props객체 = {propsName:"", propsName2: true, propsName3: Array(6)}
+
+        객체속성(Properties)은 객체의 속성값을 저장하는 프로퍼티와 객체의 함수 메서드로 구성된다.
+        var 변수 = {
+            // 프로퍼티(속성이름):값(속성값)
+            name:홍길동, 
+            age:20, 
+            nationality:'한국'
+            //메서드: function(){}
+            printOut: function(){
+                메서드
+            }
+        }
+        //ex)
+        object.name//속성
+        object.printOut()//메서드
+        var object = {//이름지정
+            name:홍길동, 
+            age:20, 
+            nationality:'한국'
+            printOut: function(){
+                메서드
+            }
+        }
+        */
+
+        // 사용자 정의 객체, 객체 리터럴(object literal)
+
+        //객체만들기
+        var info = {
+           subject: 'css',
+           credit: 1,
+           prinOut : function(){
+               return info.subject + ',' + info.credit + '학점';
+           }
+        };
+        //객체사용하기
+        console.log(info.subject);
+        console.log(info.credit);
+        console.log(info.prinOut());
+
+        //---객체속성추가하기
+        info.days = 20;
+        console.log(info.days);
+        //---속성삭제
+        delete info.credit;
+        console.log(info.credit);
+        // ---속성변경
+        info.prinOut = function(){
+            return info.subject + "," + info.days + '일';
+        };
+        console.log(info.prinOut())
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

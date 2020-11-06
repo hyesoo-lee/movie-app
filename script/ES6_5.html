@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체 생성자 함수/for in문</title>
+    <script>
+        // ==== 객체만드는법 1.
+        // ------- 객체 생성자 함수 (object constructor function) ------
+        // 객체 생성자 함수를 통해 수많은 객체 생성가능
+        // --생성자 함수
+        function Info(a, b){   // 일반함수랑 구분짓기 위해 대문자로 이름 시작
+            this.subject = a;//속성
+            this.credit = b;
+            // this.printOut = function(){//메서드
+            //     return this.subject + ',' + this.credit + '학점';
+            // };
+        }
+
+
+        // prototype
+        // 생성자 함수를 따로 불리해 / 속성은 받지만, 메서드는 프로토타입을 통해 받음(자식객체에는 메서드가 없고, 프로토타입에 있는걸 참조만 하게됨)
+        Info.prototype.printOut = function(){//메서드
+            return this.subject + ',' + this.credit + '학점';
+        };
+
+
+        // --객체1 new연산자
+        var sub1 = new Info('html',1);
+        console.log(sub1.subject);
+        console.log(sub1.credit);
+        console.log(sub1.printOut());
+        // --객체2
+        var sub2 = new Info('css',2);
+        console.log(sub2.subject);
+        console.log(sub2.credit);
+        console.log(sub2.printOut());
+
+
+        // ==== 객체만드는법 2.
+        // 객체리터럴
+
+        // ----- for in문 / 객체일 때 -> 객체 속성값 반환
+        // 구별) 배열에서의 for in문은 index 번호 반환해줌
+        var infos = {
+            subject: 'js',
+            credit: 3,
+            days: 20,
+            tuition: 1000,
+        };
+        for(var info in infos){
+            console.log(info + ':' + infos[info]);
+        } 
+
+
+       
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표 함수</title>
+    <script>
+        // ----선언적 함수
+        // 함수를 선언하기 전/후 상관없이 호출가능
+        // 매개변수 있을 때
+        compute(10,100);
+        function compute(a,b){
+            var x=a;
+            var y=b;
+            var result = x/y;
+            console.log(result);
+        }
+        //compute();
+
+        // -----익명 함수
+        // 함수에 이름이 없어서 변수에 이름저장
+        // 함수를 선언하기 후에만 호출가능
+
+        // compute2();-->결과 안나옴
+        // 매개변수 있을 때
+        var compute2 = function(a,b){
+            var x=a;
+            var y=b;
+            var result2 = x*y;
+            console.log(result2);
+        }
+        compute2(0.5,10);
+
+        // 화살표함수는 다 익명함수
+
+        // -----즉시실행 함수
+        // 함수 선언하고 함수 호출하는게 아니라, 함수선언과 동시에 함수실행 --> but, 재호출 불가능!! 한번만 실행!
+        //1.
+        // 매개변수 있을 때
+        (function(a){
+            var sum=a;
+            console.log(sum);
+        })(10);
+
+        //2.
+        var instant = (function(){
+            console.log('즉시실행 함수')
+        })();
+
+        // -----매개변수의 개수가 정해지지 않은 함수
+        // arguments객체는 인자값을 저장해주는 객체
+        function showSubject(){
+            for(i=0;i<arguments.length;i++){
+                console.log(arguments[i]);
+            }
+        }
+        showSubject('html','css','js','jquery');
+
+        // -----ES6 화살표 함수
+        // 기본
+        var TheFnc = function(a,b){
+            return a*b;
+        }
+        console.log(TheFnc(2,5));
+        //화살표함수
+        // 1. function 키워드 생략
+        // 2. 실행문이 한줄일경우 {}생략가능
+        // 3. 실행문이 한줄일경우 return 생략가능
+        var TheFnc = (a,b) => a*b;
+        console.log(TheFnc(2,5));
+
+
+        //기본(여러줄일경우)
+        function TheFnc2(c,d){
+            var sum = c+d;
+            return sum;
+        }
+        console.log(TheFnc2(10,5));
+        //화살표함수(여러줄일경우)
+        // 1.선언함수를 익명함수로 바꾸기
+        // 2.화살표함수로 바꾸기(function없애고 매개변수,=> 넣기)
+        var TheFnc2 = (c,d) => {
+            var sum = c+d;
+            return sum;
+        }
+        console.log(TheFnc2(10,5));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
